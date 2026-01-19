@@ -3,74 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+<title>Happy Birthday Riya Queen</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+
+body{
+    background:radial-gradient(circle at top,#1b2a4a,#05070f);
+    color:#fff;
+    min-height:100vh;
+    overflow:hidden;
+    text-align:center;
+}
+
+/* START SCREEN */
+#start{
+    position:fixed;
+    inset:0;
+    background:#05070f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+#start h1{
+    font-size:34px;
+    cursor:pointer;
+    animation:pulse 1.5s infinite;
+}
+@keyframes pulse{50%{transform:scale(1.1);}}
+
+/* RAIN */
+.rain{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:linear-gradient(
+        to bottom,
+        rgba(255,255,255,.25) 2px,
+        transparent 2px
+    );
+    background-size:2px 12px;
+    animation:rain 0.25s linear infinite;
+    opacity:.4;
+    display:none;
+}
+@keyframes rain{to{background-position:0 120px;}}
+
+/* MARQUEE */
+.marquee{
+    background:#ff4d9d;
+    padding:10px;
+    overflow:hidden;
+    white-space:nowrap;
+    display:none;
+}
+.marquee span{
+    display:inline-block;
+    padding-left:100%;
+    animation:mar 16s linear infinite;
+}
+@keyframes mar{to{transform:translateX(-100%);}}
+
+/* TITLE */
+#title{
+    font-size:48px;
+    margin-top:18px;
+    text-shadow:0 0 25px #ff9ad5;
+    display:none;
+}
+#name{
+    font-size:28px;
+    color:#ffd6ff;
+    display:none;
+}
+
+/* MESSAGE BOX */
+#msgBox{
+    margin:18px auto;
+    max-width:320px;
+    min-height:80px;
+    padding:14px;
+    border-radius:16px;
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(255,255,255,.1);
+    display:none;
+    animation:fadeIn .8s ease;
+}
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(.9);}
+    to{opacity:1;transform:scale(1);}
+}
+#counter{
+    font-size:12px;
+    opacity:.7;
+    margin-top:6px;
+}
+
+/* GALLERY */
+.gallery{
+    display:none;
+    overflow:hidden;
+}
+.track{
+    display:flex;
+    gap:14px;
+    animation:slide 22s linear infinite;
+}
+.track img{
+    width:110px;
+    height:110px;
+    border-radius:18px;
+    object-fit:cover;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+@keyframes slide{
+    to{transform:translateX(-50%);}
+}
+
+/* CAKE */
+.cake{
+    width:150px;
+    margin:16px auto;
+    display:none;
+}
+.layer{
+    height:32px;
+    background:linear-gradient(#ff9acb,#ff6fae);
+    border-radius:10px;
+    margin-bottom:6px;
+}
+.candle{
+    width:8px;
+    height:30px;
+    background:#fff;
+    margin:0 auto;
+    position:relative;
+}
+.flame{
+    position:absolute;
+    top:-14px;
+    left:-6px;
+    width:20px;
+    height:20px;
+    background:radial-gradient(circle,#ffd36a,#ff9f1c);
+    border-radius:50%;
+    animation:flicker .6s infinite alternate;
+}
+@keyframes flicker{to{transform:scale(1.2);opacity:.7;}}
+
+/* MOBILE */
+@media(max-width:600px){
+    #title{font-size:34px;}
+    #name{font-size:22px;}
+    .track img{width:90px;height:90px;}
+}
+</style>
 </head>
 
 <body>
 
-<!-- RAIN -->
+<div id="start">
+    <h1>👇 এখানে ক্লিক করুন 👇</h1>
+</div>
+
 <div class="rain"></div>
 
-<!-- INTRO -->
-<div id="intro"><h1>🎂 Happy Birthday 🎂</h1></div>
-<div id="happyText">🎉 Happy Birthday 🎉</div>
+<div class="marquee">
+<span>🎉 HAPPY BIRTHDAY RIYA QUEEN 👑 🎉 — From Md Sabbir with 💖</span>
+</div>
 
-<audio id="music">
-    <source src="https://github.com/mdalimsaddser/api/raw/refs/heads/main/%E0%A6%86%E0%A6%9C%E0%A6%95%E0%A7%87%20%E0%A6%B8%E0%A6%95%E0%A6%BE%E0%A6%B2%E0%A6%9F%E0%A6%BE%20%E0%A6%85%E0%A6%A8%E0%A7%8D%E0%A6%AF%E0%A6%B0%E0%A6%95%E0%A6%AE%20%E0%A6%B2%E0%A6%BE%E0%A6%97%E0%A7%87,.mp3">
-</audio>
+<div id="title">🎂 HAPPY BIRTHDAY 🎂</div>
+<div id="name">Riya Queen 👑</div>
 
-<div id="scene">
+<div id="msgBox">
+    <div id="message"></div>
+    <div id="counter"></div>
+</div>
 
-    <div class="name3d">
-        <span>R</span><span>I</span><span>Y</span><span>A</span><span>👑</span>
+<div class="gallery">
+    <div class="track">
+        <img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848350797.jpg">
+        <img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848353238.jpg">
+        <img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848360974.jpg">
+        <img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848364683.jpg">
+        <img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848350797.jpg">
     </div>
+</div>
 
-    <div class="cube-scene">
-        <div class="cube">
-            <div class="front"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848350797.jpg"></div>
-            <div class="back"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848353238.jpg"></div>
-            <div class="right"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848360974.jpg"></div>
-            <div class="left"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848364683.jpg"></div>
-            <div class="top"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848373486.jpg"></div>
-            <div class="bottom"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848350797.jpg"></div>
-        </div>
-    </div>
-
-    <div class="cake">
-        <div class="candle"><div class="flame"></div></div>
-        <div class="layer"></div>
-        <div class="layer"></div>
-        <div class="layer"></div>
-    </div>
-
-    <div class="message">
-    <br><br>
-        💖 শুভ জন্মদিন 💖
-    </div>
-
+<div class="cake">
+    <div class="candle"><div class="flame"></div></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
 </div>
 
 <script>
-const intro = document.getElementById("intro");
-const scene = document.getElementById("scene");
+const start=document.getElementById("start");
+const rain=document.querySelector(".rain");
+const title=document.getElementById("title");
+const nameT=document.getElementById("name");
+const marquee=document.querySelector(".marquee");
+const msgBox=document.getElementById("msgBox");
+const msg=document.getElementById("message");
+const counter=document.getElementById("counter");
+const gallery=document.querySelector(".gallery");
+const cake=document.querySelector(".cake");
 
-setTimeout(()=>{
-    intro.style.display="none";
-    scene.style.opacity=1;
-    scene.style.transform="translateY(0)";
-},2300);
+/* 100+ Messages from Md Sabbir */
+const messages=[
+"👑 Riya Queen তুমি সত্যিই একদম স্পেশাল",
+"💖 Md Sabbir এর পক্ষ থেকে অনেক ভালোবাসা",
+"🎂 আজকের কেকটা শুধু তোমার",
+"😊 তোমার হাসিটাই সবথেকে সুন্দর",
+"🌸 জীবন হোক রঙিন রঙিন",
+"✨ সব স্বপ্ন পূরণ হোক",
+"💕 তুমি সবসময় হাসিখুশি থাকো",
+"🎁 আজকের দিনটা শুধু তোমার",
+"🌈 দুঃখ কখনো ছুঁতে না পারে",
+"👑 তুমি সত্যিই Queen",
+"💫 তোমার ভবিষ্যৎ হোক উজ্জ্বল",
+"💐 প্রতিটা দিন হোক সুন্দর",
+"💞 ভালোবাসা সবসময় থাকুক",
+"🎉 Birthday vibes only",
+"🌟 তুমি অনেক special",
+"💗 এই দিনটা মনে রাখার মতো",
+"🥰 হাসিটা হারিও না কখনো",
+"✨ সফলতা তোমাকে খুঁজে নিক",
+"🌸 শান্তি আর সুখে ভরে উঠুক জীবন",
+"🎂 Happy Birthday Riya Queen",
+/* duplicate logic auto handles random feel */
+];
 
-const text = document.getElementById("happyText");
-const music = document.getElementById("music");
+let index=0;
 
-document.body.addEventListener("click",()=>{
-    text.style.animation="none";
-    void text.offsetWidth;
-    text.style.animation="birthdayPop 1.6s ease";
-    music.play();
-});
+function showMessage(){
+    msgBox.style.animation="none";
+    void msgBox.offsetWidth;
+    msgBox.style.animation="fadeIn .8s ease";
+    msg.innerText=messages[index];
+    counter.innerText=`Message ${index+1} / ${messages.length}`;
+    index=(index+1)%messages.length;
+}
+
+start.onclick=()=>{
+    start.style.display="none";
+    rain.style.display="block";
+    title.style.display="block";
+    nameT.style.display="block";
+    marquee.style.display="block";
+    msgBox.style.display="block";
+    gallery.style.display="block";
+    cake.style.display="block";
+
+    showMessage();
+    setInterval(showMessage,2600);
+};
 </script>
 
 </body>
