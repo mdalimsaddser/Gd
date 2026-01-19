@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday</title>
+
+<!-- CSS LINK -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="intro"><h1>🎂 Happy Birthday 🎂</h1></div>
+<div id="happyText">🎉 Happy Birthday 🎉</div>
+
+<audio id="music">
+    <source src="birthday.mp3">
+</audio>
+
+<div id="scene">
+
+    <div class="name3d">
+        <span>R</span><span>I</span><span>Y</span><span>A</span><span>👑</span>
+    </div>
+
+    <div class="cube-scene">
+        <div class="cube">
+            <div class="front"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848350797.jpg"></div>
+            <div class="back"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848353238.jpg"></div>
+            <div class="right"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848360974.jpg"></div>
+            <div class="left"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848364683.jpg"></div>
+            <div class="top"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848373486.jpg"></div>
+            <div class="bottom"><img src="https://raw.githubusercontent.com/mdalimsaddser/api/main/1768848350797.jpg"></div>
+        </div>
+    </div>
+
+    <div class="cake">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+
+    <div class="message">
+        আমার ছোট্ট কালের বন্ধু,<br>
+        সময় আমাদের বড় করেছে,<br>
+        কিন্তু স্মৃতিগুলো আজও আগের মতোই সুন্দর।<br><br>
+        💖 শুভ জন্মদিন 💖
+    </div>
+
+</div>
+
+<script>
+const intro = document.getElementById("intro");
+const scene = document.getElementById("scene");
+
+setTimeout(()=>{
+    intro.style.display="none";
+    scene.style.opacity=1;
+    scene.style.transform="translateY(0)";
+},2300);
+
+const text = document.getElementById("happyText");
+const music = document.getElementById("music");
+
+document.body.addEventListener("click",()=>{
+    text.style.animation="none";
+    void text.offsetWidth;
+    text.style.animation="birthdayPop 1.6s ease";
+    music.play();
+});
+</script>
+
+</body>
+</html>
